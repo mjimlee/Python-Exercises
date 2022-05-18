@@ -22,6 +22,12 @@ def factorial(x):
         the factorial of the argument
     '''
     # Write your code below this line
+    y = 1
+    
+    for i in range(2, x+1):
+        y *= i
+    return y
+
 
 def classify_grade(number_grade):
     '''Item 2.
@@ -46,6 +52,29 @@ def classify_grade(number_grade):
         the letter grade equivalent of the number grade.
     '''
     # Write your code below this line
+    if number_grade <= 100 and number_grade >= 92:
+        return 'A'
+
+    if number_grade <= 91.9 and number_grade >= 86:
+        return 'B+'
+
+    if number_grade <= 85.9 and number_grade >= 80:
+        return 'B'
+
+    if number_grade <= 79.9 and number_grade >= 74:
+        return 'C+'
+
+    if number_grade <= 73.9 and number_grade >= 67:
+        return 'C'
+
+    if number_grade <= 66.9 and number_grade >= 60:
+        return 'D'
+
+    if number_grade <= 59.9 and number_grade >= 0:
+        return 'F'
+
+    else:
+        return 'Did you place the correct value?'
 
 def average_weight(item_quantity_1, item_weight_1, item_quantity_2, item_weight_2):
     '''Item 3.
@@ -71,6 +100,7 @@ def average_weight(item_quantity_1, item_weight_1, item_quantity_2, item_weight_
         the weighted average weight of one item.
     '''
     # Write your code below this line
+    return ((item_quantity_1 * item_weight_1) + (item_quantity_2 * item_weight_2)) / (item_weight_1 + item_weight_2)
 
 def string_sum(string):
     '''Item 4.
@@ -90,7 +120,17 @@ def string_sum(string):
         the sum of the digits contained in the string.
     '''
     # Write your code below this line
-
+    temp = "0"
+    Sum = 0
+ 
+    for ch in string:
+        if (ch.isdigit()):
+            temp += ch
+        else:
+            Sum += int(temp)
+            temp = "0"
+    return Sum + int(temp)
+    
 def distance(x_1, y_1, x_2, y_2):
     '''Item 5.
     Distance. 3 points.
@@ -117,6 +157,11 @@ def distance(x_1, y_1, x_2, y_2):
         the distance between the two coordinates
     '''
     # Write your code below this line
+    import math
+
+    x_dist = abs(x_2 - x_1)
+    y_dist = abs(y_2 - y_1)
+    return math.sqrt(x_dist + y_dist)
 
 def make_change(amount):
     '''Item 6.
@@ -139,3 +184,32 @@ def make_change(amount):
             "1P:{amount}/25C:{amount}/10C:{amount}/5C:{amount}/1C:{amount}"
     '''
     # Write your code below this line
+    whole = 0
+    quarter = 0
+    dime = 0
+    nickle = 0
+    penny = 0
+    cursor = amount
+
+    while cursor >= 1:
+      whole += 1
+      cursor -= 1
+    cursor = amount-(1*whole)
+    while cursor >= 0.25:
+      quarter += 1
+      cursor -= 0.25
+    cursor = amount-(1.0*whole)-(0.25*quarter)
+    while cursor >= 0.1:
+      dime += 1
+      cursor -= 0.1
+    cursor = amount-(1*whole)-(0.25*quarter)-(0.1*dime)
+    print(cursor)
+    while cursor >= 0.05:
+      nickle += 1
+      cursor -= 0.05
+    cursor = amount-(1*whole)-(0.25*quarter)-(0.1*dime)-(0.05*nickle)
+    while cursor >= 0.01:
+      penny += 1
+      cursor -= 0.01
+
+    print("1P:{}/25C:{}/10C:{}/5C:{}/1C:{}".format(whole, quarter, dime, nickle, penny))

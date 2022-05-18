@@ -33,7 +33,15 @@ def relationship_status(from_member, to_member, social_graph):
         "no relationship" if neither fromMember nor toMember follow each other.
     '''
     # Write your code below this line
-
+    if from_member in social_graph[to_member]['following']:
+        if to_member in social_graph[from_member]['following']:
+            return "friends"
+        else:
+            return "follower"
+    elif to_member in social_graph[from_member]['following']:
+        return "followed by"
+    else:
+        return "no relationship"
 
 def tic_tac_toe(board):
     '''
@@ -56,6 +64,8 @@ def tic_tac_toe(board):
         the symbol of the winner or "NO WINNER" if there is no winner
     '''
     # Write your code below this line
+    # for i in range(0, len(board)):
+
 
 def eta(first_stop, second_stop, route_map):
     '''

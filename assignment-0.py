@@ -26,12 +26,4 @@ def three_number_average(x, y, z):
         the average of x, y, and z
     '''
     # Write your code below this line
-x = input('Input the first number:')
-y = input('Input the second number:')
-z = input('Input the third number:')
-
-sum = float(x) + float(y) + float(z)
-
-avg = sum/3
-
-print(avg)
+    return (x+y+z)/3
