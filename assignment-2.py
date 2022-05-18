@@ -64,8 +64,7 @@ def tic_tac_toe(board):
         the symbol of the winner or "NO WINNER" if there is no winner
     '''
     # Write your code below this line
-    # for i in range(0, len(board)):
-
+    
 
 def eta(first_stop, second_stop, route_map):
     '''
@@ -93,3 +92,14 @@ def eta(first_stop, second_stop, route_map):
         the time it will take the shuttle to travel from first_stop to second_stop
     '''
     # Write your code below this line
+    time = 0
+    start = first_stop
+
+    while start != second_stop:
+        for x in route_map.keys():
+            if start == x[0]:
+                start = x[1]
+                print(start)
+                time += route_map[x]['duration']
+                break
+    return time
